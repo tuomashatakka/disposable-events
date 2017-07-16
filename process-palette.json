@@ -1,0 +1,47 @@
+{
+  "patterns": {
+    "P1": {
+      "expression": "(path):(line)"
+    },
+    "P2": {
+      "expression": "(path)\\s+(line)",
+      "path": "(?:\\/[\\w\\.\\-]+)+"
+    }
+  },
+  "commands": [
+    {
+      "namespace": "webpack",
+      "action": "compile",
+      "command": "npm run build",
+      "arguments": [],
+      "cwd": "{fileProjectPath}",
+      "inputDialogs": [],
+      "env": {},
+      "keystroke": "cmd-alt-b",
+      "stream": true,
+      "outputTarget": "panel",
+      "outputBufferSize": 80000,
+      "maxCompleted": 1,
+      "autoShowOutput": true,
+      "autoHideOutput": true,
+      "scrollLockEnabled": true,
+      "singular": true,
+      "promptToSave": false,
+      "saveOption": "referenced",
+      "patterns": [
+        "default"
+      ],
+      "successOutput": "{stdout}",
+      "errorOutput": "{stdout}\n{stderr}",
+      "fatalOutput": "Failed to execute : {fullCommand}\n{stdout}\n{stderr}",
+      "startMessage": null,
+      "successMessage": "Executed : {fullCommand}",
+      "errorMessage": "Executed : {fullCommand}\nReturned with code {exitStatus}\n{stderr}",
+      "fatalMessage": "Failed to execute : {fullCommand}\n{stdout}\n{stderr}",
+      "menus": [],
+      "notifyOnStart": false,
+      "notifyOnSuccess": true,
+      "notifyOnError": true
+    }
+  ]
+}
