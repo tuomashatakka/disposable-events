@@ -6,8 +6,8 @@
     "uglifyjs-webpack-plugin": "^0.4.6"
   },
   "name": "disposable",
-  "version": "0.2.0",
-  "main": "src/index.js",
+  "version": "0.2.1",
+  "main": "dist/disposable.js",
   "scripts": {
     "test": "jasmine",
     "build": "webpack --config=conf/webpack.config.js",
