@@ -15,4 +15,6 @@ export function Collection () {
   return new DisposableCollection(...arguments)
 }
 
-export default module.exports
+const disposable = { Event, Instance, Collection }
+
+export default disposable
