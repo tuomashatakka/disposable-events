@@ -1,52 +1,82 @@
-
-
 import { isDisposable } from './Disposable'
 
-// export function isDisposable (disposable) {
-//   const ALLOWED_TYPES = [Disposable, DisposableEvent]
-//   return (
-//     ALLOWED_TYPES.indexOf(disposable.constructor) > -1 ||
-//     Disposable.isDisposable(disposable))
-// }
+const notDisposableError = `Parameters to DisposableCollection.add should have a dispose method`
+
 
 export default class DisposableCollection {
 
+  /**
+   * Construct an instance of `DisposableCollection`
+   *
+   * @method constructor
+   */
+
   constructor () {
-    this.disposed = false
     this.disposables = []
+    this.disposed    = false
     this.add(...arguments)
   }
 
-  add () {
-    if (!this.disposed)
-      [...arguments].forEach(disposable =>
-        isDisposable(disposable) ?
-        this.disposables.push(disposable)
-        : new Error("Parameters to DisposableCollection.add should have a dispose method")
-      )
+  /**
+   * Append any number of disposable objects to the collection
+   *
+   * @method add
+   * @param  {Array} disposables Any number of objects with a disposal action
+   */
+
+  add (...disposables) {
+    if (this.disposed)
+      return
+    disposables.forEach(disposable => {
+      if (!isDisposable(disposable))
+        throw new Error(notDisposableError)
+      this.disposables.push(disposable)
+    })
   }
 
-  remove () {
-    if (!this.disposed)
-      [...arguments].forEach(disposable => {
-        let id = this.disposables.findIndex(iter => iter == disposable)
-        if (id > -1)
-          this.disposables.splice(id, 1)
-      })
+  /**
+   * Remove disposables from the collection
+   *
+   * @method remove
+   * @param  {[type]} disposables Any number of disposables that are added
+   *                              to this collection
+   */
+
+
+  remove (...disposables) {
+    if (this.disposed)
+      return
+
+    disposables.forEach(disposable => {
+      let id = this.disposables.findIndex(iter => iter == disposable)
+      if (id > -1) this.disposables.splice(id, 1)
+    })
   }
+
+  /**
+   * Clear the collection from any disposables without firing their
+   * disposal actions
+   *
+   * @method clear
+   */
 
   clear () {
     if (!this.disposed)
       this.disposables = []
   }
 
-  dispose () {
-    if (!this.disposed) {
-      this.disposed = true
-      this.disposables.forEach(disposable =>
-        disposable.dispose())
-      this.disposables = null
-    }
-  }
+  /**
+   * Dispose the collection along with all its registered disposables
+   * @method dispose
+   * @return {[type]} [description]
+   */
 
+  dispose () {
+    if (this.disposed)
+      return
+
+    this.disposed = true
+    this.disposables.forEach(disposable => disposable.dispose())
+    this.disposables = null
+  }
 }
