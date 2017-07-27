@@ -1,11 +1,7 @@
 {
   "dependencies": {
-    "autobind-decorator": "^1.4.1",
-    "babel-polyfill": "^6.23.0",
-    "express": "^4.15.3",
-    "uglifyjs-webpack-plugin": "^0.4.6"
   },
-  "name": "disposable",
+  "name": "disposable-events",
   "version": "0.2.1",
   "main": "dist/disposable.js",
   "scripts": {
@@ -16,7 +12,13 @@
   "author": "Tunpi3k",
   "license": "MIT",
   "description": "",
+  "url": "https://gitlab.com/tuomashatakka/disposable-events",
+  "repository": "https://gitlab.com/tuomashatakka/disposable-events",
   "devDependencies": {
+    "autobind-decorator": "^1.4.1",
+    "babel-polyfill": "^6.23.0",
+    "express": "^4.15.3",
+    "uglifyjs-webpack-plugin": "^0.4.6",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-class-properties": "^6.24.1",

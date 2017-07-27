@@ -9,9 +9,7 @@ const ENTRY_FILE_PATH = __dirname + '/../src/index.js'
 const MAIN_OUTPUT_NAME = '[name].js'
 const DIST_PATH = __dirname + '/../dist'
 const CSS_OUTPUT_NAME  = 'style.css'
-
-const library = config.name.replace(/[^\w]+(\w)/g, (_, c) => c.toUpperCase())
-
+const library = 'disposable' // config.name.replace(/[^\w]+(\w)/g, (_, c) => c.toUpperCase())
 const dev = false
 
 const entry = dev ? {
