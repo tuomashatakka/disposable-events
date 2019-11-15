@@ -3,6 +3,12 @@ import Disposable from './Disposable'
 import DisposableEvent from './DisposableEvent'
 import DisposableCollection from './DisposableCollection'
 
+export {
+  Disposable,
+  DisposableCollection,
+  DisposableEvent,
+}
+
 export function Event () {
   return new DisposableEvent(...arguments)
 }
@@ -15,6 +21,8 @@ export function Collection () {
   return new DisposableCollection(...arguments)
 }
 
-const disposable = { Event, Instance, Collection }
-
-export default disposable
+export default {
+  Event, 
+  Instance, 
+  Collection,
+}
