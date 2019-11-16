@@ -8,8 +8,8 @@
   "scripts": {
     "build": "babel src --out-dir dist --presets @babel/env # joanna-tello -o api.json package.json lib",
     "postpublish": "npm run build",
-    "test": "ava",
-    "coverage": "nyc ava"
+    "test": "mkdir -p reports && ava --tap | tap-xunit > ./reports/ava.xml",
+    "coverage": "mkdir -p reports && nyc report --reporter=text-lcov > ./reports/lcov.info"
   },
   "url": "https://github.com/tuomashatakka/disposable-events",
   "repository": "https://github.com/tuomashatakka/disposable-events",
@@ -19,6 +19,7 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "ava": "^2.4.0",
-    "nyc": "^14.1.1"
+    "nyc": "^14.1.1",
+    "tap-xunit": "^2.4.1"
   }
 }

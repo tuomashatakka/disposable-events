@@ -4,4 +4,6 @@ yarn.lock
 .DS_Store
 
 dist/
+reports/
+coverage/
 .nyc_output
