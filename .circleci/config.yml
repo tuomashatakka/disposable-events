@@ -26,6 +26,7 @@ jobs:
       - run:
           name: Run tests
           command: |
+            npm run build
             npm test
             npm run coverage
           when: always
