@@ -25,11 +25,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Run tests
-          command: npm test
-          when: always
-      - run:
-          name: Test coverage
-          command: npm run coverage
+          command: |
+            npm test
+            npm run coverage
           when: always
       - store_test_results:
           path: ./reports
