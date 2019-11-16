@@ -26,10 +26,9 @@ jobs:
       - run:
           name: Run tests
           command: |
-            mkdir -p .nyc_output
             npm run build
-            npm test
-            npm run coverage
+            npm run report:test
+            npm run report:coverage
           when: always
       - store_test_results:
           path: ./reports
