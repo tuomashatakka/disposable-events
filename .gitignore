@@ -4,3 +4,4 @@ yarn.lock
 .DS_Store
 
 dist/
+.nyc_output

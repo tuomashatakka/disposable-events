@@ -7,7 +7,8 @@
   "main": "dist/disposable.js",
   "scripts": {
     "build": "babel src --out-dir dist --presets @babel/env # joanna-tello -o api.json package.json lib",
-    "test": "ava"
+    "test": "ava",
+    "coverage": "nyc ava"
   },
   "url": "https://github.com/tuomashatakka/disposable-events",
   "repository": "https://github.com/tuomashatakka/disposable-events",
