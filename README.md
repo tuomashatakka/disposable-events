@@ -1,3 +1,6 @@
+![Travis (.com)](https://img.shields.io/travis/com/tuomashatakka/disposable-events?style=for-the-badge)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/tuomashatakka/disposable-events?color=%2300aaaa&style=for-the-badge)
+
 # disposable-events
 
 ## What does it do
