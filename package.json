@@ -9,7 +9,7 @@
     "test": "ava",
     "build": "babel src --out-dir dist --presets @babel/env # joanna-tello -o api.json package.json lib",
     "postpublish": "npm run build",
-    "report:test": "mkdir -p ./reports && ava --tap | tap-xunit > ./reports/ava/results.xml",
+    "report:test": "mkdir -p ./reports/ava && ava --tap | tap-xunit > ./reports/ava/results.xml",
     "report:coverage": "mkdir -p ./coverage && mkdir -p ./.nyc_output && nyc --reporter=lcov ava"
   },
   "url": "https://github.com/tuomashatakka/disposable-events",
