@@ -3,6 +3,10 @@ language: node_js
 node_js:
  - 11
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID: cd60514dc8c96385f8e27c7f2d357e3e2a2920b2f63af6239f52ec921031eb1c
+
 script:
  - npm run build
  - npm run report:test

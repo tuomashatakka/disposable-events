@@ -3,6 +3,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: cd60514dc8c96385f8e27c7f2d357e3e2a2920b2f63af6239f52ec921031eb1c
     docker:
       # specify the version you desire here
       - image: circleci/node:11
@@ -18,7 +20,10 @@ jobs:
             - v1-dependencies-
       - run: 
           name: Install dependencies
-          command: npm install
+          command: |
+            npm install
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
       - save_cache:
           paths:
             - node_modules
@@ -26,11 +31,15 @@ jobs:
       - run:
           name: Run tests
           command: |
+            ./cc-test-reporter before-build
             npm run build
             npm run report:test
             npm run report:coverage
+            ./cc-test-reporter after-build --debug --coverage-input-type lcov --exit-code $?
           when: always
       - store_test_results:
-          path: ./reports
+          root: ./reports
+          paths: 
+            - ava/*
       - store_artifacts:
-          path: ./reports
+          path: ./coverage
