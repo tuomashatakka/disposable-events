@@ -1,7 +1,10 @@
-![Travis (.com)](https://img.shields.io/travis/com/tuomashatakka/disposable-events?style=for-the-badge)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/tuomashatakka/disposable-events?color=%2300aaaa&style=for-the-badge)
-
 # disposable-events
+
+![Build status](https://img.shields.io/travis/com/tuomashatakka/disposable-events?style=for-the-badge)
+![Maintainability](https://img.shields.io/codeclimate/maintainability/tuomashatakka/disposable-events?style=for-the-badge)
+![Coverage](https://img.shields.io/codeclimate/coverage/tuomashatakka/disposable-events?style=for-the-badge)
+![Issues](https://img.shields.io/github/issues-raw/tuomashatakka/disposable-events?color=%2380afc0&style=for-the-badge)
+![Repo size](https://img.shields.io/github/languages/code-size/tuomashatakka/disposable-events?color=%2300aaaa&style=for-the-badge)
 
 ## What does it do
 
