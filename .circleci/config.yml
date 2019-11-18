@@ -38,8 +38,6 @@ jobs:
             ./cc-test-reporter after-build --debug --coverage-input-type lcov --exit-code $?
           when: always
       - store_test_results:
-          root: ./reports
-          paths: 
-            - ava/*
+          path: ./reports/ava/results.xml
       - store_artifacts:
           path: ./coverage
