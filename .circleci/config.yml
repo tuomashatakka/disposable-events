@@ -2,9 +2,17 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@4.0.1
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
 jobs:
+  cov:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - codecov/upload
   test:
     # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/executor-intro/ & https://circleci.com/docs/configuration-reference/#executor-job
@@ -26,6 +34,9 @@ jobs:
       - run:
           name: install packages
           command: npm ci
+      - run:
+          name: build
+          command: npm build
       - save_cache:
           key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
           paths:
@@ -41,3 +52,4 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - test
+      - cov
