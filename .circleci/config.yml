@@ -44,6 +44,10 @@ jobs:
       - run:
           name: Run Tests
           command: npm run test
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
