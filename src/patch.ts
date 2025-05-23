@@ -1,5 +1,5 @@
 
-export async function patchCallback (element, name, ...callbacks) {
+export async function patchCallback (element: any, name: string, ...callbacks: CallableFunction[]) {
 
   element.callbacks = element.callbacks || {};
 
@@ -10,7 +10,7 @@ export async function patchCallback (element, name, ...callbacks) {
       if (!element.callbacks[name].length)
         return originalCallback.apply(element, arguments)
       else
-        return element.callbacks[name].forEach(fn => fn.apply(element, arguments))
+        return element.callbacks[name].forEach((fn: { apply: (arg0: any, arg1: IArguments) => any; }) => fn.apply(element, arguments))
     }
   }
   else {
@@ -21,6 +21,6 @@ export async function patchCallback (element, name, ...callbacks) {
   }
 }
 
-export function patchDetachCallback (element, ...fn) {
+export function patchDetachCallback (element: any, ...fn: any[]) {
   patchCallback(element, 'remove', ...fn)
 }

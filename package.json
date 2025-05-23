@@ -4,9 +4,12 @@
   "author": "tuomashatakka",
   "description": "",
   "license": "MIT",
-  "main": "dist/disposable.js",
+  "module": "true",
+  "types": "./types.d.ts",
+  "main": "src/index.ts",
   "scripts": {
     "test": "ava",
+    "build:types": "tsc src/index.ts",
     "build": "babel src --source-maps --out-dir dist --presets @babel/env # joanna-tello -o api.json package.json lib",
     "postpublish": "npm run build",
     "report:test": "mkdir -p ./reports/ava && ava --tap | tap-xunit > ./reports/ava/results.xml",
@@ -14,11 +17,14 @@
   },
   "url": "https://github.com/tuomashatakka/disposable-events",
   "repository": "https://github.com/tuomashatakka/disposable-events",
-  "dependencies": {},
+  "dependencies": {
+    "@types/events": "^3.0.3",
+    "typescript": "^5.8.3"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
     "ava": "^2.4.0",
     "nyc": "^14.1.1",
     "tap-xunit": "^2.4.1"

@@ -1,9 +1,11 @@
-import { isDisposable } from './Disposable'
+import Disposable, { isDisposable } from './Disposable'
 
 const notDisposableError = `Parameters to DisposableCollection.add should have a dispose method`
 
 
 export default class DisposableCollection {
+  disposables: Disposable[]
+  disposed: boolean
 
   /**
    * Construct an instance of `DisposableCollection`
@@ -11,10 +13,10 @@ export default class DisposableCollection {
    * @method constructor
    */
 
-  constructor () {
+  constructor (...args: Disposable[]) {
     this.disposables = []
     this.disposed    = false
-    this.add(...arguments)
+    this.add(...args)
   }
 
   /**
@@ -24,7 +26,7 @@ export default class DisposableCollection {
    * @param  {Array} disposables Any number of objects with a disposal action
    */
 
-  add (...disposables) {
+  add (...disposables: Disposable[]) {
     if (this.disposed)
       return
     disposables.forEach(disposable => {
@@ -43,7 +45,7 @@ export default class DisposableCollection {
    */
 
 
-  remove (...disposables) {
+  remove (...disposables: Disposable[]) {
     if (this.disposed)
       return
 
@@ -77,6 +79,6 @@ export default class DisposableCollection {
 
     this.disposed = true
     this.disposables.forEach(disposable => disposable.dispose())
-    this.disposables = null
+    this.disposables = []
   }
 }

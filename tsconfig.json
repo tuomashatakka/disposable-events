@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "noLib": true,
+    "moduleDetection": "auto",
+    "module": "Preserve",
+    "rootDir": "./",                                  /* Specify the root folder within your source files. */
+    "typeRoots": [ "./types "],                                  /* Specify multiple folders that act like './node_modules/@types'. */
+    "noResolve": true,                                /* Disallow 'import's, 'require's or '<reference>'s from expanding the number of files TypeScript should add to a project. */
+    "checkJs": false,                                  /* Enable error reporting in type-checked JavaScript files. */
+
+    "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
+    "emitDeclarationOnly": true,                      /* Only output d.ts files and not JavaScript files. */
+    "outFile": "./types.ts",                                  /* Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  }
+}

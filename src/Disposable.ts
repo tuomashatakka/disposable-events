@@ -1,6 +1,7 @@
 
 export default class Disposable {
-
+  disposed: boolean = false
+  disposalAction: CallableFunction | null
 
   /**
    * Ensure that an `object` correctly implements the `Disposable` contract
@@ -10,7 +11,7 @@ export default class Disposable {
    * @return {Boolean}    Boolean indicating whether `object` is a valid `Disposable`
    */
 
-  static isDisposable (object) {
+  static isDisposable (object: Disposable | unknown) {
     return isDisposable(object)
   }
 
@@ -21,8 +22,7 @@ export default class Disposable {
    * @param  {Function}    disposalAction An action to perform when {::dispose} is called for the first time
    */
 
-  constructor (disposalAction) {
-    this.disposed = false
+  constructor (disposalAction: CallableFunction) {
     this.disposalAction = disposalAction.bind(this)
   }
 
@@ -54,7 +54,7 @@ export default class Disposable {
  * @return {Boolean}    Boolean indicating whether `object` is a valid `Disposable`
  */
 
-export function isDisposable (object) {
+export function isDisposable (object: any) {
   return object && typeof object.dispose === "function"
 }
 
