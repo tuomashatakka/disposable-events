@@ -16,7 +16,7 @@
     "report:coverage": "mkdir -p ./coverage && mkdir -p ./.nyc_output && nyc --reporter=lcov ava"
   },
   "url": "https://github.com/tuomashatakka/disposable-events",
-  "repository": "https://github.com/tuomashatakka/disposable-events",
+  "repository": "git@github.com:tuomashatakka/disposable-events.git",
   "dependencies": {
     "@types/events": "^3.0.3",
     "typescript": "^5.8.3"
